@@ -1,0 +1,11 @@
+[Unit]
+Description = "Consul Standalone Server"
+
+[Service]
+KillSignal=INT
+ExecStart=/usr/local/bin/consul agent -data-dir=/consul-data -bootstrap -bind=0.0.0.0 -server -ui -client=159.203.73.55
+Restart=always
+ExecStopPost=/bin/sleep 5
+
+[Install]
+WantedBy=multi-user.target
