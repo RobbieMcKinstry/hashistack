@@ -30,6 +30,11 @@ resource "digitalocean_firewall" "consul-server" {
     },
     {
       protocol           = "tcp"
+      port_range         = "8200"
+      source_addresses   = ["0.0.0.0/0", "::/0"]
+    },
+    {
+      protocol           = "tcp"
       port_range         = "8300"
       source_addresses   = ["0.0.0.0/0", "::/0"]
     },

@@ -3,7 +3,7 @@ Description = "Consul Standalone Server"
 
 [Service]
 KillSignal=INT
-ExecStart=/usr/local/bin/consul agent -data-dir=/consul-data -bootstrap -bind=0.0.0.0 -server -ui -client=159.203.73.55
+ExecStart=/usr/local/bin/consul agent -data-dir=/consul-data -bootstrap -bind={bind-ip} -server -ui -client=209.97.155.9
 Restart=always
 ExecStopPost=/bin/sleep 5
 

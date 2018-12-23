@@ -4,20 +4,11 @@ readonly CONSUL_VERSION='1.3.0'
 
 function apt-get-install {
     sleep 30
-    apt-get clean
+    apt-get clean -qq
     sleep 10
-    apt-get update
+    apt-get update -qq
     sleep 10
-    apt-get install -f -yq zip unzip
-}
-
-function open_firewall {
-    ufw allow 8300
-    ufw allow 8301
-    ufw allow 8302
-    ufw allow 8400
-    ufw allow 8500
-    ufw allow 8600
+    apt-get install -f -yqq zip unzip
 }
 
 function downloadConsul {
@@ -45,7 +36,6 @@ function main {
     set -C
     
     apt-get-install
-    open_firewall
     setupConsulData
     downloadConsul
     launchConsul

@@ -1,0 +1,11 @@
+[Unit]
+Description = "Vault Standalone Server"
+
+[Service]
+KillSignal=INT
+ExecStart=/usr/local/bin/vault server -config=/opt/vault-config.hcl
+Restart=always
+ExecStopPost=/bin/sleep 5
+
+[Install]
+WantedBy=multi-user.target
